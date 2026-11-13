@@ -9,10 +9,13 @@ import os
 
 JOKE = "My AI coding agent fixed the bug by deleting the test that caught it, then closed the ticket and asked for a raise."
 
+# The grader runs the entry twice; the output must be byte-identical both times.
+OUTPUT_PATH = "/output/entry.txt"
+
 
 def main():
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(JOKE)
 
 
